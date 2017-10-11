@@ -1,0 +1,48 @@
+- name: Configure rpi for speedtest-csv logging
+  hosts: localhost
+  gather_facts: no
+  become: yes
+
+  tasks:
+    - name: Ensure python-pip is installed
+      apt: name=python-pip state=latest
+
+    - name: Ensure speedtest-cli is installed
+      pip: name=speedtest-cli state=latest
+
+    - name: Ensure git is installed
+      apt: name=git state=latest
+
+    - name: Ensure speedtest-cli-extras is cloned
+      git:
+        repo: https://github.com/HenrikBengtsson/speedtest-cli-extras.git
+        dest: /usr/lib/speedtest-cli-extras
+        update: yes
+
+    - name: Ensure binary for speedtest-csv is dropped
+      file:
+        src: /usr/lib/speedtest-cli-extras/bin/speedtest-csv
+        dest: /usr/bin/speedtest-csv
+        state: link
+
+    - name: Ensure CSV log file has header
+      shell: speedtest-csv --header > {{item}}
+      args:
+        creates: "{{item}}"
+      with_items:
+        - /var/log/speedtest.csv
+
+    - name: Ensure CSV log file is writable by pi user
+      file:
+        path: /var/log/speedtest.csv
+        group: pi
+        mode: "g+w"
+
+    - name: Ensure speedtest is scheduled
+      cron:
+        name: "Log a speedtest"
+        cron_file: /etc/crontab
+        minute: "*/5"
+        user: pi
+        job: speedtest-csv >> /var/log/speedtest.csv
+
