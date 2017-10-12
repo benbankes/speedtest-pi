@@ -25,3 +25,5 @@ Installation has only been tested on a the Raspbian OS.  However, it will probab
 ## License
 
 [MIT](LICENSE) © Ben Bankes
+
+[![Join the chat at https://gitter.im/speedtest-pi/Lobby](https://badges.gitter.im/speedtest-pi/Lobby.svg)](https://gitter.im/speedtest-pi/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
