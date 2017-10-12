@@ -1,5 +1,5 @@
 # speedtest-pi
-Log internet bandwidth to a CSV file with a Raspberry Pi.
+Automatically log internet bandwidth to a CSV file with a Raspberry Pi
 
 ## Install
 After installing Raspbian, run the following commands in a terminal:
@@ -11,20 +11,16 @@ cd speetest-pi
 ansible-playbook speedtest.yml
 ```
 
-Internet speed is automatically logged to /var/log/speedtest.csv every 5 minutes.
+## Usage
+
+After installation, internet bandwidth is automatically benchmarked and logged to the file /var/log/speedtest.csv
 
 ## Dependencies
 
-These are automatically included by running the ansible playbook.
+- Ansible is used to automate installation tasks
+- The `speedtest-csv` command from [speedtest-cli-extras](https://github.com/HenrikBengtsson/speedtest-cli-extras) is automatically included during installation
 
-- `speedtest-csv` command from [speedtest-cli-extras](https://github.com/HenrikBengtsson/speedtest-cli-extras) (automatically installed by the ansible playbook)
-    - [speedtest-cli](https://github.com/sivel/speedtest-cli)
-        - Python (version 2 or 3)
-        - bash
-
-## Usage
-
-None.  After installation, your internet bandwidth is automatically benchmarked and logged to the file /var/log/speedtest.csv
+Installation has only been tested on a the Raspbian OS.  However, it will probably work perfectly fine on any Debian-based operating system (eg. Ubuntu) with Python 2 or 3.
 
 ## License
 
