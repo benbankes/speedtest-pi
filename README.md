@@ -1,4 +1,6 @@
 # speedtest-pi
+
+[![Join the chat at https://gitter.im/speedtest-pi/Lobby](https://badges.gitter.im/speedtest-pi/Lobby.svg)](https://gitter.im/speedtest-pi/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 Log internet bandwidth to a CSV file with a Raspberry Pi
 
 ## Install
