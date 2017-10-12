@@ -1,5 +1,5 @@
 # speedtest-pi
-Automatically log internet bandwidth to a CSV file with a Raspberry Pi
+Log internet bandwidth to a CSV file with a Raspberry Pi
 
 ## Install
 After installing Raspbian, run the following commands in a terminal:
