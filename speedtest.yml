@@ -10,9 +10,6 @@
     - name: Ensure speedtest-cli is installed
       pip: name=speedtest-cli state=latest
 
-    - name: Ensure git is installed
-      apt: name=git state=latest
-
     - name: Ensure speedtest-cli-extras is cloned
       git:
         repo: https://github.com/HenrikBengtsson/speedtest-cli-extras.git
